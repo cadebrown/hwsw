@@ -1,0 +1,4 @@
+# ignore all files in the .venv directory
+.venv/
+
+.brewfile_deps_cache_dir/

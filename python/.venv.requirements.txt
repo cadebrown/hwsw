@@ -1,0 +1,24 @@
+cmake
+ninja
+click
+rich
+tqdm
+cachetools
+jupyterlab
+notebook
+voila
+numpy
+scipy
+sympy
+pandas
+polars
+tabulate
+matplotlib
+seaborn
+# llvmlite
+# numba
+aesara
+opencv-python
+requests
+wordcloud
+bs4
