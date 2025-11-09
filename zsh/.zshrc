@@ -27,6 +27,8 @@ setopt C_PRECEDENCES
 setopt RM_STAR_SILENT
 setopt CHASE_LINKS
 
+
+
 ### OHMYZSH SETUP ###
 
 export ZSH="$HOME/.oh-my-zsh"

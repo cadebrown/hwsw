@@ -189,7 +189,7 @@ setup_hwsw_pkgs() {
   # set up Python virtual environment
   echo "setting up Python virtual environment ..."
   if [ ! -e "$HWSW/python/.venv" ]; then
-      uv venv "$HWSW/python/.venv" --prompt uv --python 3.14 --relocatable --clear
+      uv venv "$HWSW/python/.venv" --prompt uv --python 3.14 --relocatable --seed --clear
   fi
 
   echo "installing Python packages ..."
