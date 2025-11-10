@@ -30,10 +30,10 @@ If the above is just too easy (or, doesn't work for a special case), you can man
 
 ```shell
 # clone the repository to your home directory
-$ git clone git@github.com:cadebrown/hwsw.git ~/hwsw
+$ git clone git@github.com:cadebrown/hwsw.git /path/to/hwsw && cd $_
 
-# go that directory
-$ cd ~/hwsw
+# symbolically link it, if it is installed in a custom place
+$ ln -sfr . ~/hwsw
 
 # make sure all submodules are initialized
 $ git submodule update --init --recursive
