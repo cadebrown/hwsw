@@ -23,11 +23,19 @@ if [ -e "$HOME/.homebrew" ]; then
     # FIX: problems with perl and stow
     export PERLLIB="$HOMEBREW_PREFIX/Cellar/stow/2.4.1/home/linuxbrew/.linuxbrew/Cellar/perl/5.38.2_1/lib/perl5/site_perl/5.38"
 
+    # add Rust to the path
+    export PATH="$(brew --prefix rustup)/bin:$PATH"
+
 elif [ -e "/opt/homebrew" ]; then
 
     # otherwise, if the system-wide Homebrew exists, use it
     eval "$(/opt/homebrew/bin/brew shellenv)"
+
+    # add Rust to the path
+    export PATH="$(brew --prefix rustup)/bin:$PATH"
+
 fi
+
 
 ### PATHS SETUP ###
 
