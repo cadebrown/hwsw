@@ -372,7 +372,32 @@ class ImprovedConsole(InteractiveConsole):
 
         def append_history(len_at_start):
             current_len = readline.get_current_history_length()
-            readline.append_history_file(current_len - len_at_start, config.HISTFILE)
+
+            if "append_history_file" not in dir(readline):
+                # NEW: manually concatenate the history, required for MacOS (due to libedit)
+
+                # keep track of new history lines to add
+                # NOTE: this is 1-indexed, so we add 1 to the index
+                history_to_add = [readline.get_history_item(i + 1) for i in range(len_at_start, current_len)]
+
+                readline.clear_history()
+
+                # now, re-read the current history from the file
+                if os.path.exists(config.HISTFILE):
+                    readline.read_history_file(config.HISTFILE)
+
+                # now, add the new history lines to the current history
+                for line in history_to_add:
+                    readline.add_history(line)
+
+                # now, write the current history to the file
+                readline.write_history_file(config.HISTFILE)
+
+            else:
+                # OLD: doesn't work on MacOS: AttributeError: module 'readline' has no attribute 'append_history_file'
+                readline.append_history_file(current_len - len_at_start, config.HISTFILE)
+
+            # readline.write_history_file(config.HISTFILE)
 
         if readline.get_current_history_length() == 0:
             # If no history was loaded, default to .python_history.

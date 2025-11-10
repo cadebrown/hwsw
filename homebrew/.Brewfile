@@ -1,10 +1,31 @@
 
-# ZSH is my default shell
+# ZSH is my default shell, but includes others for experimenting
 brew "zsh"
+brew "bash"
+brew "fish"
 
-# text editors
-# brew "vim"
+# Nushell is an interesting shell written in Rust (object oriented)
+brew "nushell"
+
+# Neovim is my default text editor
 brew "neovim"
+
+# Stow is used for managing dotfiles, and home directory structure
+brew "stow"
+
+# OpenSSH is required for SSH
+brew "openssh"
+
+# Python package manager, I use a managed ~/.venv for my default install (via `uv`)
+brew "uv"
+
+# Includes LLVM and Clang, for C/C++ development as well as compiler development
+brew "llvm"
+
+# C/C++ build tools, used for building software
+brew "cmake"
+brew "ninja"
+brew "meson"
 
 # cool CLI utilities: https://joeyh.name/code/moreutils/
 brew "moreutils"
@@ -17,22 +38,13 @@ brew "git"
 brew "git-delta"
 brew "fastfetch"
 brew "ncdu"
-brew "stow"
 brew "git"
+brew "wget"
+brew "curl"
+brew "fetch"
 
 # math libraries
 brew "fftw"
-
-# OpenSSH is required for SSH
-brew "openssh"
-
-# Python package manager
-brew "uv"
-
-# C/C++ build tools
-brew "cmake"
-brew "ninja"
-brew "llvm"
 
 # LLVM v20 is required for llvmlite (Python package)
 # brew "llvm@20"
@@ -42,6 +54,13 @@ brew "ffmpeg"
 # image editing software
 cask "gimp"
 cask "inkscape"
+
+cask "blender"
+cask "obs"
+cask "vlc"
+brew "mpv"
+cask "elmedia-player"
+cask "alfred"
 
 # TODO: docker?
 

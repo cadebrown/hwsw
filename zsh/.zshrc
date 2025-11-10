@@ -55,7 +55,7 @@ prompt pure
 
 # aliases
 alias g='git'
-alias p='uv python'
+alias p='uv run python'
 alias e='nvim'
 
 alias cat='bat --paging=never'
