@@ -41,6 +41,11 @@ $ git submodule update --init --recursive
 # run the installation script
 # TODO: document the steps here...
 $ ./tools/install.sh
+
+
+# ensure Rust toolchain is installed
+$ rustup default stable
+
 ```
 
 ## Homebrew Package Manager Configuration
