@@ -1,5 +1,5 @@
 #!/bin/sh
-# tools/install.sh - single install script for my (Cade Brown) system setup
+# install.sh - single install script for my (Cade Brown) system setup
 # NOTE: a lot of this was copied from: https://github.com/ohmyzsh/ohmyzsh/blob/master/tools/install.sh
 
 # exit on error
@@ -202,6 +202,25 @@ echo ""
 
 echo "installing dotfiles ..."
 stow -d "$HWSW" -t "$HOME" -S git ssh zsh neovim python rust homebrew --verbose
+
+echo "--------------------------------"
+echo "| installing config files ...  |"
+echo "--------------------------------"
+echo ""
+
+if [ "$(uname)" = "Darwin" ]; then
+  echo "installing iTerm2 preferences... (on MacOS)"
+  
+  # Specify the preferences directory
+  defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.iterm2"
+
+  # Tell iTerm2 to use the custom preferences in the directory
+  defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+
+  # Tell iTerm2 to save preferences automatically
+  defaults write com.googlecode.iterm2.plist "NoSyncNeverRemindPrefsChangesLostForFile_selection" -int 2
+fi
+
 
 echo "--------------------------------"
 echo "| setting up Python ...        |"

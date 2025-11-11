@@ -8,21 +8,21 @@ The easiest way is to run the setup script from `curl`/`wget`/`fetch`:
 
 ```shell
 # if you have `curl` installed
-$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/cadebrown/hwsw/main/tools/install.sh)"
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/cadebrown/hwsw/main/install.sh)"
 
 # if you have `wget` installed
-$ sh -c "$(wget -O- https://raw.githubusercontent.com/cadebrown/hwsw/main/tools/install.sh)"
+$ sh -c "$(wget -O- https://raw.githubusercontent.com/cadebrown/hwsw/main/install.sh)"
 
 # if you have `fetch` installed
-$ sh -c "$(fetch -o - https://raw.githubusercontent.com/cadebrown/hwsw/main/tools/install.sh)"
+$ sh -c "$(fetch -o - https://raw.githubusercontent.com/cadebrown/hwsw/main/install.sh)"
 ```
 
 This script respects the following environment variables:
 
 * `HWSW=$HOME/hwsw` - path to install this repository to, default is in your home directory
-* `REPO=cadebrown/hwsw` - repository to clone, default is my own
-* `REMOTE=https://github.com/${REPO}.git` - remote URL to clone, default is GitHub's
-* `BRANCH=main` - branch to checkout, default is main
+* `REPO="cadebrown/hwsw"` - repository to clone, default is my own
+* `REMOTE="https://github.com/${REPO}.git"` - remote URL to clone, default is GitHub's
+* `BRANCH="main"` - branch to checkout, default is main
 
 ### Manual Setup Instructions
 
@@ -40,7 +40,7 @@ $ git submodule update --init --recursive
 
 # run the installation script
 # TODO: document the steps here...
-$ ./tools/install.sh
+$ ./install.sh
 
 # ensure Rust toolchain is installed, and I use the nightly version
 $ rustup default nightly
@@ -93,3 +93,13 @@ $ export PERLLIB="$HWSW/homebrew/.homebrew/Cellar/stow/2.4.1/home/linuxbrew/.lin
 ### Setup on Windows
 
 Just follow the instructions for Linux, but use Windows Subsystem for Linux (WSL) instead of Linux.
+
+## TODO
+
+I still have quite a bit I'd like to change about this:
+
+* Use something other than `stow` for dotfiles
+  * Either `chezmoi`, `dotbot`, another tool, or doing it myself in Python/Shell
+* Use a `nix` configuration for programs, so dependencies are built from source and thus not required to use Homebrew
+* Make management and customization more easy for other users using this repository
+  * i.e.: `HWSW_LINK_FROM=""` - if this is set, the `$HWSW` directory will be linked from the given path

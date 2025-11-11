@@ -88,6 +88,9 @@ brew "qemu"
 # UTM for running virtual machines (QEMU wrapper UI)
 cask "utm"
 
+# ImageMagick for image processing
+brew "imagemagick"
+
 # image editing software
 cask "gimp"
 cask "inkscape"
@@ -106,6 +109,18 @@ cask "spotify"
 
 # Font: JetBrains Mono
 cask "font-jetbrains-mono"
+
+# iTerm2 for terminal
+cask "iterm2"
+
+# Warp for terminal
+cask "warp"
+
+# Ghostty for terminal
+cask "ghostty"
+
+# Tabby for terminal
+cask "tabby"
 
 # Discord for messaging
 #cask "discord"
