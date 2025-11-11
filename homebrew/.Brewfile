@@ -16,6 +16,9 @@ brew "stow"
 # OpenSSH is required for SSH
 brew "openssh"
 
+# Tmux for managing multiple terminal sessions
+brew "tmux"
+
 # Python package manager, I use a managed ~/.venv for my default install (via `uv`)
 brew "uv"
 
@@ -42,6 +45,25 @@ brew "git"
 brew "wget"
 brew "curl"
 brew "fetch"
+brew "tree"
+
+# count lines of code
+brew "cloc"
+
+# readline wrapper, for interactive tools that don't support readline
+brew "rlwrap"
+
+# fuzzy finder
+brew "fzf"
+
+# system monitoring tools
+brew "glances"
+brew "bottom"
+brew "btop"
+brew "htop"
+
+# GitHub CLI for managing GitHub repositories
+brew "gh"
 
 # math libraries
 brew "fftw"
@@ -51,21 +73,74 @@ brew "fftw"
 brew "zstd"
 brew "ffmpeg"
 
+# for Java...
+brew "openjdk"
+
+# mpv for video playback
+brew "mpv"
+
+# Docker for containerization
+brew "docker"
+
+# QEMU for running virtual machines
+brew "qemu"
+
+# UTM for running virtual machines (QEMU wrapper UI)
+cask "utm"
+
 # image editing software
 cask "gimp"
 cask "inkscape"
 
+# web browser
+cask "firefox"
+
+# LaTeX for MacOS
+cask "mactex"
+
+# LibreOffice for MacOS
+cask "libreoffice"
+
+# Spotify for audio streaming
+cask "spotify"
+
+# Font: JetBrains Mono
+cask "font-jetbrains-mono"
+
+# Discord for messaging
+#cask "discord"
+
+# Slack for messaging
+#cask "slack"
+
+# best archive manager, hands down
+cask "the-unarchiver"
+
+# Blender for 3D modeling
 cask "blender"
+
+# OBS for video recording
 cask "obs"
+
+# VLC for video playback
 cask "vlc"
-brew "mpv"
-cask "elmedia-player"
+
+# .NET SDK for .NET development (C#/F#/...)
+cask "dotnet-sdk"
+
+# Alfred for productivity
 cask "alfred"
 
-# TODO: docker?
+cask "elmedia-player"
+
+# Steam for gaming
+cask "steam"
+
+# Prism Launcher for Minecraft
+cask "prismlauncher"
 
 # Rust programming language
-brew "rustup", postinstall: "${HOMEBREW_PREFIX}/bin/rustup default stable"
+brew "rustup", postinstall: "${HOMEBREW_PREFIX}/bin/rustup default nightly"
 
 # text-based web browser
 brew "lynx"

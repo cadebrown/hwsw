@@ -42,9 +42,8 @@ $ git submodule update --init --recursive
 # TODO: document the steps here...
 $ ./tools/install.sh
 
-
-# ensure Rust toolchain is installed
-$ rustup default stable
+# ensure Rust toolchain is installed, and I use the nightly version
+$ rustup default nightly
 
 ```
 

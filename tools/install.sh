@@ -182,19 +182,6 @@ setup_hwsw_pkgs() {
   fi
   echo ""
 
-  echo "--------------------------------"
-  echo "| setting up Python ...        |"
-  echo "--------------------------------"
-
-  # set up Python virtual environment
-  echo "setting up Python virtual environment ..."
-  if [ ! -e "$HWSW/python/.venv" ]; then
-      uv venv "$HWSW/python/.venv" --prompt uv --python 3.14 --relocatable --seed --clear
-  fi
-
-  echo "installing Python packages ..."
-  uv pip install -r "$HWSW/python/.venv.requirements.txt" --python "$HWSW/python/.venv"
-
   cd -
 
 }
@@ -214,4 +201,42 @@ echo "HOME=$HOME"
 echo ""
 
 echo "installing dotfiles ..."
-stow -d "$HWSW" -t "$HOME" -S git ssh zsh neovim python homebrew --verbose
+stow -d "$HWSW" -t "$HOME" -S git ssh zsh neovim python rust homebrew --verbose
+
+echo "--------------------------------"
+echo "| setting up Python ...        |"
+echo "--------------------------------"
+
+# set up Python virtual environment
+echo "setting up Python virtual environment ..."
+if [ ! -e "$HWSW/python/.venv" ]; then
+    uv venv "$HWSW/python/.venv" --prompt uv --python 3.14 --relocatable --seed --clear
+fi
+
+echo "installing Python packages ..."
+uv pip install -r "$HWSW/python/.venv.requirements.txt" --python "$HWSW/python/.venv"
+
+echo "--------------------------------"
+echo "| setting up Rust ...          |"
+echo "--------------------------------"
+
+# add Rust to the path
+export PATH="$(brew --prefix rustup)/bin:$PATH"
+# and installed Rust binaries
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# set up the default Rust toolchain
+rustup default nightly
+
+while IFS= read -r line; do
+  # Perform other operations with "$line" here
+  # remove anything after and including '#' (comments)
+  line=$(echo "$line" | sed 's/#.*//')
+  if [ -n "$line" ]; then
+    echo "installing Rust package: $line ..."
+    cargo install --locked $line || echo "package install failed: $line"
+  fi
+done < "$HWSW/rust/.cargo.txt"
+
+echo ""
+

@@ -1,0 +1,22 @@
+# .cargo.txt - list of Rust packages to install, see tools/install.sh for more details
+
+# xan for CSV utilities
+xan
+
+# fd for file searching
+fd-find
+
+# sd for string manipulation
+sd
+
+# hyperfine for benchmarking
+hyperfine
+
+# procs for process monitoring
+procs
+
+# rm-improved for improved rm command (rip)
+rm-improved
+
+# zoxide for smarter cd command
+zoxide

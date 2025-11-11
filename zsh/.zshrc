@@ -27,8 +27,6 @@ setopt C_PRECEDENCES
 setopt RM_STAR_SILENT
 setopt CHASE_LINKS
 
-
-
 ### OHMYZSH SETUP ###
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -36,9 +34,12 @@ export ZSH_CUSTOM="$HOME/.oh-my-zsh-custom"
 # export ZSH_THEME="afowler"
 export ZSH_THEME="" # must be empty for custom prompt
 
-# zstyle ':omz:lib:theme-and-appearance' gnu-ls yes
+# ZSH completion
+# autoload -Uz compinit && compinit
 
-# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# bash completion
+# autoload -Uz bashcompinit && bashcompinit
+
 plugins=(git colorize zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
@@ -48,8 +49,7 @@ source $ZSH/oh-my-zsh.sh
 # PURE_GIT_UNTRACKED_DIRTY=0
 fpath+=("$ZSH_CUSTOM/themes/pure")
 
-autoload -U promptinit
-promptinit
+autoload -Uz promptinit && promptinit
 zstyle :prompt:pure:git:stash show yes
 prompt pure
 
@@ -59,3 +59,12 @@ alias p='uv run python'
 alias e='nvim'
 
 alias cat='bat --paging=never'
+
+# Xan completions
+function __xan {
+    xan compgen "$1" "$2" "$3"
+}
+complete -F __xan -o default xan
+
+# Zoxide completions
+# eval "$(zoxide init zsh)"

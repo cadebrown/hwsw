@@ -31,11 +31,13 @@ elif [ -e "/opt/homebrew" ]; then
     # otherwise, if the system-wide Homebrew exists, use it
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
-    # add Rust to the path
+    # add Rust toolchain to the path
     export PATH="$(brew --prefix rustup)/bin:$PATH"
 
 fi
 
+# add installed Rust binaries to the path
+export PATH="$HOME/.cargo/bin:$PATH"
 
 ### PATHS SETUP ###
 
