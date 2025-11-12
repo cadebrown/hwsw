@@ -200,8 +200,13 @@ echo "HWSW=$HWSW"
 echo "HOME=$HOME"
 echo ""
 
+# create some default directories for config files, so stow doesn't link the entire folder to my dotfiles dir
+# for example, ssh config is in ~/.ssh/config, but stow would link the entire ~/.ssh folder to my dotfiles dir (if it hasn't been created yet)
+mkdir -p "$HOME/.ssh"
+mkdir -p "$HOME/.config"
+
 echo "installing dotfiles ..."
-stow -d "$HWSW" -t "$HOME" -S git ssh zsh neovim python rust homebrew --verbose
+stow -d "$HWSW" -t "$HOME" -S git ssh zsh neovim python rust homebrew aerospace linearmouse --verbose
 
 echo "--------------------------------"
 echo "| installing config files ...  |"

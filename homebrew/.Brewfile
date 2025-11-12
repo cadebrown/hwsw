@@ -1,26 +1,101 @@
+# .Brewfile - my Homebrew packages for declarative system configuration
 
-# ZSH is my default shell, but includes others for experimenting
+# ZSH is my default shell
 brew "zsh"
-brew "bash"
+
+# Fish is a nice shell I'm trying out
 brew "fish"
 
 # Nushell is an interesting shell written in Rust (object oriented)
 brew "nushell"
 
+# use Bash from Homebrew, since it's newer than the system default
+brew "bash"
+
 # Neovim is my default text editor
 brew "neovim"
-
-# Stow is used for managing dotfiles, and home directory structure
-brew "stow"
-
-# OpenSSH is required for SSH
-brew "openssh"
 
 # Tmux for managing multiple terminal sessions
 brew "tmux"
 
-# Python package manager, I use a managed ~/.venv for my default install (via `uv`)
+# Python environment manager
+# NOTE: I use ~/.venv for my user-default Python environment (via `uv`)
 brew "uv"
+
+# Rust programming language, this manages toolchain
+# this will set the default nightly toolchain:
+# $ rustup default nightly
+brew "rustup", postinstall: "${HOMEBREW_PREFIX}/bin/rustup default nightly"
+
+# Git for version control
+# NOTE: use more up-to-date version from Homebrew
+brew "git"
+
+# Git delta for better git diffs, used in my .gitconfig aliases
+brew "git-delta"
+
+# GitHub CLI for managing GitHub repositories
+brew "gh"
+
+# Lynx for a text-based web browser
+# I don't use this much, but it's nice to play around with
+brew "lynx"
+
+# Collection of useful CLI utilities: https://joeyh.name/code/moreutils/
+brew "moreutils"
+
+# JSON processor for CLI
+brew "jq"
+
+# FastFetch for system information
+brew "fastfetch"
+
+# Disk usage analyzer, interactive CLI tool
+brew "ncdu"
+
+# Ripgrep for searching files, like `grep` but faster and better overall usability
+brew "ripgrep"
+
+# use more up-to-date version from Homebrew, for paging output
+brew "less"
+
+# Hierarchical directory listing tool, like `ls` but better formatted
+brew "tree"
+
+# web downloaders, use all so any scripts work
+brew "wget"
+brew "curl"
+brew "fetch"
+
+# Tool to count lines of code
+brew "cloc"
+
+# 'bat' for better `cat` output, with syntax highlighting and more
+# NOTE: I use an alias for `cat` in my .zshrc to use `bat` instead, so it's required
+brew "bat"
+brew "bat-extras"
+
+# ImageMagick for CLI image processing
+brew "imagemagick"
+
+# readline wrapper, for interactive tools that don't support readline
+brew "rlwrap"
+
+# Fuzzy finder, for finding files and directories
+brew "fzf"
+
+# System monitoring tools
+brew "glances"
+brew "bottom"
+brew "btop"
+brew "htop"
+
+# Stow is used for managing dotfiles, and home directory structure
+# TODO: find alternative?
+brew "stow"
+
+# OpenSSH is required for SSH
+brew "openssh"
 
 # Includes LLVM and Clang, for C/C++ development as well as compiler development
 brew "llvm"
@@ -29,41 +104,6 @@ brew "llvm"
 brew "cmake"
 brew "ninja"
 brew "meson"
-
-# cool CLI utilities: https://joeyh.name/code/moreutils/
-brew "moreutils"
-
-# other common CLI utilities
-brew "jq"
-brew "less"
-brew "ripgrep"
-brew "git"
-brew "git-delta"
-brew "fastfetch"
-brew "ncdu"
-brew "git"
-brew "wget"
-brew "curl"
-brew "fetch"
-brew "tree"
-
-# count lines of code
-brew "cloc"
-
-# readline wrapper, for interactive tools that don't support readline
-brew "rlwrap"
-
-# fuzzy finder
-brew "fzf"
-
-# system monitoring tools
-brew "glances"
-brew "bottom"
-brew "btop"
-brew "htop"
-
-# GitHub CLI for managing GitHub repositories
-brew "gh"
 
 # math libraries
 brew "fftw"
@@ -88,11 +128,22 @@ brew "qemu"
 # UTM for running virtual machines (QEMU wrapper UI)
 cask "utm"
 
-# ImageMagick for image processing
-brew "imagemagick"
+# Alfred for productivity, it's a better Spotlight/Launchpad replacement
+cask "alfred"
 
-# image editing software
+# Font: JetBrains Mono
+cask "font-jetbrains-mono"
+
+# iTerm2 for terminal
+cask "iterm2"
+
+# Warp for terminal
+cask "warp"
+
+# GIMP for general image editing (bitmaps)
 cask "gimp"
+
+# Inkscape for vector graphics editing
 cask "inkscape"
 
 # web browser
@@ -107,20 +158,11 @@ cask "libreoffice"
 # Spotify for audio streaming
 cask "spotify"
 
-# Font: JetBrains Mono
-cask "font-jetbrains-mono"
+# Aerospace for terminal
+cask "nikitabobko/tap/aerospace"
 
-# iTerm2 for terminal
-cask "iterm2"
-
-# Warp for terminal
-cask "warp"
-
-# Ghostty for terminal
-cask "ghostty"
-
-# Tabby for terminal
-cask "tabby"
+# LinearMouse for fixing acceleration on MacOS
+cask "linearmouse"
 
 # Discord for messaging
 #cask "discord"
@@ -143,24 +185,17 @@ cask "vlc"
 # .NET SDK for .NET development (C#/F#/...)
 cask "dotnet-sdk"
 
-# Alfred for productivity
-cask "alfred"
-
-cask "elmedia-player"
-
 # Steam for gaming
 cask "steam"
 
 # Prism Launcher for Minecraft
 cask "prismlauncher"
 
-# Rust programming language
-brew "rustup", postinstall: "${HOMEBREW_PREFIX}/bin/rustup default nightly"
+# experiments
+# cask "elmedia-player"
 
-# text-based web browser
-brew "lynx"
+# Ghostty for terminal
+# cask "ghostty"
 
-# cool command
-brew "bat"
-brew "bat-extras"
-
+# Tabby for terminal
+# cask "tabby"

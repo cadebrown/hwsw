@@ -1,24 +1,4 @@
 
-[user]
-    email = brown.cade@gmail.com
-    name = Cade Brown
-
-# override user for work directory (NVIDIA)
-[includeIf "gitdir:~/work/"]
-    path = ~/.gitconfig-work-nvidia
-
-# override user when it is my NVIDIA home directory on MacOS (cadeb != cade)
-[includeIf "gitdir:/Users/cadeb/"]
-    path = ~/.gitconfig-work-nvidia
-
-# override user when it is my NVIDIA home directory on Linux (cadeb != cade)
-[includeIf "gitdir:/home/cadeb/"]
-    path = ~/.gitconfig-work-nvidia
-
-# override user for NVIDIA scratch space for work
-[includeIf "gitdir:/home/scratch.cadeb_ent/"]
-    path = ~/.gitconfig-work-nvidia
-
 [init]
     defaultBranch = main
 
@@ -49,8 +29,8 @@
     rebase = true
     ff = only
 
-# [merge]
-#     conflictStyle = zdiff3
+[merge]
+    conflictStyle = zdiff3
 
 [rebase]
     autoSquash = true
@@ -83,4 +63,27 @@
 [alias]
     lg = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all -n 15
     zip = archive -o latest.zip HEAD
+
+    # positivity FTW!
     praise = blame
+
+[user]
+    email = brown.cade@gmail.com
+    name = Cade Brown
+
+# override user for work directory (NVIDIA)
+[includeIf "gitdir:~/work/"]
+    path = ~/.gitconfig-work-nvidia
+
+# override user when it is my NVIDIA home directory on MacOS (cadeb != cade)
+[includeIf "gitdir:/Users/cadeb/"]
+    path = ~/.gitconfig-work-nvidia
+
+# override user when it is my NVIDIA home directory on Linux (cadeb != cade)
+[includeIf "gitdir:/home/cadeb/"]
+    path = ~/.gitconfig-work-nvidia
+
+# override user for NVIDIA scratch space for work
+[includeIf "gitdir:/home/scratch.cadeb_ent/"]
+    path = ~/.gitconfig-work-nvidia
+

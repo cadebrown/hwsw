@@ -102,4 +102,4 @@ I still have quite a bit I'd like to change about this:
   * Either `chezmoi`, `dotbot`, another tool, or doing it myself in Python/Shell
 * Use a `nix` configuration for programs, so dependencies are built from source and thus not required to use Homebrew
 * Make management and customization more easy for other users using this repository
-  * i.e.: `HWSW_LINK_FROM=""` - if this is set, the `$HWSW` directory will be linked from the given path
+  * i.e.: best`HWSW_LINK_FROM=""` - if this is set, the `$HWSW` directory will be linked from the given path
