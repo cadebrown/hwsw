@@ -50,6 +50,10 @@ fi
 # guide here: https://gitlab-master.nvidia.com/cuda-hpc-libraries/tools/conan/mathlibs-conan-recipes
 export CONAN_HOME=$HOME/.conan2
 
+# TODO: add binutils to the path, shadowing host default?
+# export PATH="$HOME/.homebrew/opt/binutils/bin:$PATH"
+# export LDFLAGS="-L$HOME/.homebrew/opt/binutils/lib"
+# export CPPFLAGS="-I$HOME/.homebrew/opt/binutils/include"
 
 ### PYTHON SETUP ###
 
@@ -87,3 +91,6 @@ if [ -d "$NCU_HOME" ]; then
     export PATH="$NCU_HOME/bin:$PATH"
     export LD_LIBRARY_PATH="$NCU_HOME/lib64:$NCU_HOME/lib:$LD_LIBRARY_PATH"
 fi
+
+
+
