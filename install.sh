@@ -205,6 +205,22 @@ echo ""
 mkdir -p "$HOME/.ssh"
 mkdir -p "$HOME/.config"
 
+# # only on macos
+# if [ "$(uname)" = "Darwin" ]; then
+
+#   mkdir -p "$HOME/Library/Application Support/Alfred"
+
+#   # in addition, move existing files to backups if they exist
+#   if [ -e "$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences" ]; then
+#       # check if it points to the correct directory
+#       if [ "$(realpath "$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences")" != "$HWSW/alfred/Library/Application Support/Alfred/Alfred.alfredpreferences" ]; then
+#           mv "$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences" "$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences.backup.$(date +%Y-%m-%d_%H-%M-%S)"
+#       else
+#           echo "Alfred preferences already point to the correct directory, skipping backup..."
+#       fi
+#   fi
+# fi
+
 echo "installing dotfiles ..."
 stow -d "$HWSW" -t "$HOME" -S git ssh zsh neovim python rust homebrew aerospace linearmouse --verbose
 
