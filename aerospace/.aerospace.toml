@@ -3,6 +3,14 @@
 # fix for Mission Control not liking what AeroSpace does with windows in corners
 # $ defaults write com.apple.dock expose-group-apps -bool true && killall Dock
 
+
+
+# multimonitor config:
+# https://www.reddit.com/r/MacOS/comments/1fwl4yq/how_do_you_guys_configure_aerospace_for/
+
+
+
+
 # You can use it to add commands that run after AeroSpace startup.
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = []
