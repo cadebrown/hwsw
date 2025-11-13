@@ -238,7 +238,22 @@ if [ "$(uname)" = "Darwin" ]; then
 
   # hide the menu bar
   defaults write NSGlobalDomain _HIHideMenuBar -bool true; killall Finder
+ 
+  # don't ever quarantine apps... fixes 'malware' messages from Apple
+  defaults write com.apple.LaunchServices LSQuarantine -bool NO
+  # https://superuser.com/questions/1635602/how-to-disable-quarantine-completely-in-macos
   
+  if spctl --status | grep -q "enabled"; then
+    echo "disabling Gatekeeper..."
+    sudo spctl --global-disable
+  else
+    echo "Gatekeeper is already disabled, skipping..."
+  fi
+  # then, go to Settings -> Privacy and Security and allow from 'Anywhere'
+
+  # disable window spaces, for aerospace
+  defaults write com.apple.spaces disable-window-spaces -bool true
+
   # Specify the preferences directory
   defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.iterm2"
 
