@@ -204,6 +204,7 @@ echo ""
 # for example, ssh config is in ~/.ssh/config, but stow would link the entire ~/.ssh folder to my dotfiles dir (if it hasn't been created yet)
 mkdir -p "$HOME/.ssh"
 mkdir -p "$HOME/.config"
+mkdir -p "$HOME/.conan2it"
 
 # # only on macos
 # if [ "$(uname)" = "Darwin" ]; then
@@ -222,7 +223,7 @@ mkdir -p "$HOME/.config"
 # fi
 
 echo "installing dotfiles ..."
-stow -d "$HWSW" -t "$HOME" -S git ssh zsh neovim python rust homebrew aerospace linearmouse --verbose
+stow -d "$HWSW" -t "$HOME" -S git ssh zsh neovim python rust homebrew aerospace linearmouse iterm2 --verbose
 
 echo "--------------------------------"
 echo "| installing config files ...  |"
@@ -231,6 +232,12 @@ echo ""
 
 if [ "$(uname)" = "Darwin" ]; then
   echo "installing iTerm2 preferences... (on MacOS)"
+
+  # hide the dock
+  defaults write com.apple.dock autohide -bool true; killall Dock
+
+  # hide the menu bar
+  defaults write NSGlobalDomain _HIHideMenuBar -bool true; killall Finder
   
   # Specify the preferences directory
   defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.iterm2"
