@@ -204,7 +204,7 @@ echo ""
 # for example, ssh config is in ~/.ssh/config, but stow would link the entire ~/.ssh folder to my dotfiles dir (if it hasn't been created yet)
 mkdir -p "$HOME/.ssh"
 mkdir -p "$HOME/.config"
-mkdir -p "$HOME/.conan2it"
+mkdir -p "$HOME/.conan2"
 
 # # only on macos
 # if [ "$(uname)" = "Darwin" ]; then
