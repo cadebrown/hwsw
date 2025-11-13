@@ -48,7 +48,7 @@ if [ -e "$HOME/scratch" ]; then
 fi
 
 # guide here: https://gitlab-master.nvidia.com/cuda-hpc-libraries/tools/conan/mathlibs-conan-recipes
-export CONAN_HOME=$HOME/.conan2
+export CONAN_HOME=`realpath $HOME/.conan2`
 
 # TODO: add binutils to the path, shadowing host default?
 # export PATH="$HOME/.homebrew/opt/binutils/bin:$PATH"
@@ -70,7 +70,7 @@ export PYTHONSTARTUP="$HOME/.pythonrc"
 ### CUDA SETUP ###
 
 # CUDA setup (only if there is a folder ~/cuda)
-export CUDA_HOME="$HOME/cuda"
+export CUDA_HOME="$HOME/.cuda"
 if [ -e "$CUDA_HOME" ]; then
     export PATH="$CUDA_HOME/bin:$PATH"
     export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$CUDA_HOME/lib:$LD_LIBRARY_PATH"
@@ -90,6 +90,16 @@ export NCU_HOME="$HOME/ncu"
 if [ -d "$NCU_HOME" ]; then
     export PATH="$NCU_HOME/bin:$PATH"
     export LD_LIBRARY_PATH="$NCU_HOME/lib64:$NCU_HOME/lib:$LD_LIBRARY_PATH"
+fi
+
+
+# fixes for Linux:
+if [[ "$(uname -s)" == "Linux" ]]; then
+
+    # make sure to use system docker
+    function docker() {
+        /usr/bin/docker "$@"
+    }
 fi
 
 
