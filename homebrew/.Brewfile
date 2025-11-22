@@ -125,6 +125,9 @@ brew "docker"
 # QEMU for running virtual machines
 brew "qemu"
 
+# balenaEtcher for bootable driver creation
+cask "balenaetcher"
+
 # UTM for running virtual machines (QEMU wrapper UI)
 cask "utm"
 
