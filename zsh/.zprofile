@@ -6,9 +6,9 @@
 export LANG=en_US.UTF-8
 
 # set the default editor and pager
-export EDITOR='nvim'
+#export EDITOR='nvim'
 # export PAGER='nvim -R'
-export MANPAGER='nvim +Man!'
+#export MANPAGER='nvim +Man!'
 
 # set the default web browser as lynx
 export BROWSER='lynx'
@@ -102,5 +102,10 @@ if [[ "$(uname -s)" == "Linux" ]]; then
     }
 fi
 
+
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+    eval `ssh-agent -s`
+    ssh-add ~/.ssh/id_*
+fi
 
 

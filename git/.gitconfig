@@ -10,7 +10,7 @@
 
 [core]
     pager = delta
-    editor = nvim
+#    editor = nvim
 
 [interactive]
     diffFilter = delta --color-only
@@ -87,3 +87,8 @@
 [includeIf "gitdir:/home/scratch.cadeb_ent/"]
     path = ~/.gitconfig-work-nvidia
 
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
