@@ -103,9 +103,16 @@ if [[ "$(uname -s)" == "Linux" ]]; then
 fi
 
 
-if [ -z "$SSH_AUTH_SOCK" ] ; then
-    eval `ssh-agent -s`
-    ssh-add ~/.ssh/id_*
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    # on remote SSH sessions
+    : # do nothing for now
+else
+    # on non-remote sessions, make sure we are forwarding our SSH agent
+    if [ -z "$SSH_AUTH_SOCK" ] ; then
+        eval `ssh-agent -s`
+        ssh-add ~/.ssh/id_*
+    fi
+
 fi
 
 

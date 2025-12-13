@@ -252,7 +252,7 @@ if [ "$(uname)" = "Darwin" ]; then
   # then, go to Settings -> Privacy and Security and allow from 'Anywhere'
 
   # disable window spaces, for aerospace
-  defaults write com.apple.spaces disable-window-spaces -bool true
+  defaults write com.apple.spaces disable-window-spaces -bool false
 
   # Specify the preferences directory
   defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.iterm2"
