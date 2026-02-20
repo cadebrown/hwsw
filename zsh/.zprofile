@@ -13,6 +13,22 @@ export LANG=en_US.UTF-8
 # set the default web browser as lynx
 export BROWSER='lynx'
 
+# private credential file
+. ~/.nvidia.env
+# export URM_USER="..."
+# export URM_TOKEN="..."
+# export GITLAB_USER="..."
+# export GITLAB_ACCESS_TOKEN="..."
+
+
+export SSL_CERT_DIR=/usr/lib/ssl/certs
+
+# default to emitting all compile commands, useful for IDEs
+export CMAKE_EXPORT_COMPILE_COMMANDS=1
+
+export CMAKE_COLOR_DIAGNOSTICS=ON
+export CLICOLOR_FORCE=1
+export USE_CCACHE=ON
 
 ### HOMEBREW SETUP ###
 
@@ -69,14 +85,27 @@ export PYTHONSTARTUP="$HOME/.pythonrc"
 
 ### CUDA SETUP ###
 
+# function to use a CUDA install
+function cuda_use() {
+    export CUDA_HOME="$1"
+    if [ -e "$CUDA_HOME" ]; then
+        export PATH="$CUDA_HOME/bin:$PATH"
+        export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$CUDA_HOME/lib:$LD_LIBRARY_PATH"
+        export C_INCLUDE_PATH="$CUDA_HOME/include:$C_INCLUDE_PATH"
+        export CPLUS_INCLUDE_PATH="$CUDA_HOME/include:$CPLUS_INCLUDE_PATH"
+    else
+        echo "ERROR: CUDA doesn't exist at $CUDA_HOME"
+    fi
+}
+
 # CUDA setup (only if there is a folder ~/cuda)
-export CUDA_HOME="$HOME/.cuda"
-if [ -e "$CUDA_HOME" ]; then
-    export PATH="$CUDA_HOME/bin:$PATH"
-    export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$CUDA_HOME/lib:$LD_LIBRARY_PATH"
-    export C_INCLUDE_PATH="$CUDA_HOME/include:$C_INCLUDE_PATH"
-    export CPLUS_INCLUDE_PATH="$CUDA_HOME/include:$CPLUS_INCLUDE_PATH"
-fi
+cuda_use "$HOME/.cuda"
+
+
+export NSYS_PATH="$SCRATCH/cudas/nsys/nsight-systems-linux-internal-DVS/target-linux-x64"
+export PATH="$NSYS_PATH:$PATH"
+
+
 
 # NSYS setup (only if there is a folder ~/nsys)
 export NSYS_HOME="$HOME/nsys"
@@ -114,5 +143,4 @@ else
     fi
 
 fi
-
 

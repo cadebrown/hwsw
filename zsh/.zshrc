@@ -63,6 +63,8 @@ alias cat='bat --paging=never'
 
 alias cufftbench='./test/cufftbench/cufftbench_static'
 
+alias compute-sanitizer='compute-sanitizer ' 
+
 # date and time stamping
 alias datestamp='date +"%Y%m%d"'
 alias timestamp='date +"%Y%m%d%H%M%S"'
