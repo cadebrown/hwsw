@@ -147,6 +147,12 @@ automatically-unhide-macos-hidden-apps = true
     alt-8 = 'workspace 8'
     alt-9 = 'workspace 9'
 
+
+    # commands to focus to next monitor
+    alt-pageUp = 'focus-monitor --wrap-around next'
+    alt-pageDown = 'focus-monitor --wrap-around prev'
+
+
     # TODO: figure out moving nodes to workspaces
     # NOTE: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     # alt-shift-1 = 'move-node-to-workspace 1'

@@ -224,7 +224,6 @@ mkdir -p "$HOME/.conan2"
 
 echo "installing dotfiles ..."
 stow -d "$HWSW" -t "$HOME" -S git ssh zsh neovim python rust homebrew aerospace linearmouse iterm2 --verbose
-
 echo "--------------------------------"
 echo "| installing config files ...  |"
 echo "--------------------------------"
@@ -252,7 +251,7 @@ if [ "$(uname)" = "Darwin" ]; then
   # then, go to Settings -> Privacy and Security and allow from 'Anywhere'
 
   # disable window spaces, for aerospace
-  defaults write com.apple.spaces disable-window-spaces -bool false
+  #defaults write com.apple.spaces disable-window-spaces -bool true
 
   # Specify the preferences directory
   defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.iterm2"

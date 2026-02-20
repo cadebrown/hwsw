@@ -91,6 +91,10 @@ cask "prismlauncher"
 
 ### Shells ###
 
+
+# MacOS fix for actually editing menu bars
+cask "jordanbaird-ice"
+
 # ZSH is my default shell
 brew "zsh"
 
@@ -148,6 +152,11 @@ cask "codex"
 
 # Claude for terminal
 cask "claude-code"
+cask "claude-devtools"
+#cask "claude-island"
+
+# fixes clipboard issues
+brew "josharsh/homebrew-claude-utils/claude-utils"
 
 # Shell tool for env loading
 brew "direnv"
@@ -167,6 +176,15 @@ brew "ffmpeg"
 # Tmux for managing multiple terminal sessions
 brew "tmux"
 
+# OpenTofu CLI
+brew "opentofu"
+
+# Collection of useful CLI utilities: https://joeyh.name/code/moreutils/
+brew "moreutils"
+
+# GitHub CLI for managing GitHub repositories
+brew "gh"
+
 # Git for version control
 # NOTE: use more up-to-date version from Homebrew
 brew "git"
@@ -174,14 +192,12 @@ brew "git"
 # Git delta for better git diffs, used in my .gitconfig aliases
 brew "git-delta"
 
-# GitHub CLI for managing GitHub repositories
-brew "gh"
+# structural diffing
+brew "difftastic"
 
-# OpenTofu CLI
-brew "opentofu"
+# AST searching
+brew "ast-grep"
 
-# Collection of useful CLI utilities: https://joeyh.name/code/moreutils/
-brew "moreutils"
 
 # JSON processor for CLI
 brew "jq"
@@ -194,6 +210,9 @@ brew "ncdu"
 
 # Ripgrep for searching files, like `grep` but faster and better overall usability
 brew "ripgrep"
+
+# better sed replacement
+brew "sd"
 
 # use more up-to-date version from Homebrew, for paging output
 brew "less"
