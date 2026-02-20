@@ -35,12 +35,13 @@ export ZSH_CUSTOM="$HOME/.oh-my-zsh-custom"
 export ZSH_THEME="" # must be empty for custom prompt
 
 # ZSH completion
-# autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit
 
 # bash completion
-# autoload -Uz bashcompinit && bashcompinit
+autoload -Uz bashcompinit && bashcompinit
 
-plugins=(git colorize zsh-syntax-highlighting)
+plugins=(z git direnv colorize zsh-autosuggestions fast-syntax-highlighting)
+# zsh-syntax-highlighting: good, but I use the above fast-syntax-highlighting
 
 source $ZSH/oh-my-zsh.sh
 
@@ -65,7 +66,6 @@ alias cufftbench='./test/cufftbench/cufftbench_static'
 # date and time stamping
 alias datestamp='date +"%Y%m%d"'
 alias timestamp='date +"%Y%m%d%H%M%S"'
-
 
 
 # Xan completions

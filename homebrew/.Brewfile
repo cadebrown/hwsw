@@ -1,4 +1,95 @@
 # .Brewfile - my Homebrew packages for declarative system configuration
+# $ NONINTERACTIVE=1 brew bundle install --file ~/.Brewfile --services --force
+# add --clean to remove all other programs
+
+### Programs ###
+
+# Visual Studio Code as an IDE
+cask "visual-studio-code"
+
+# Cursor as an IDE
+cask "cursor"
+
+# mpv for video playback
+brew "mpv"
+
+# GIMP for general image editing (bitmaps)
+cask "gimp"
+
+# Inkscape for vector graphics editing
+cask "inkscape"
+
+# web browser
+cask "firefox"
+
+# LaTeX for MacOS
+cask "mactex"
+
+# LibreOffice for MacOS
+cask "libreoffice"
+
+# Spotify for audio streaming
+cask "spotify"
+
+# Aerospace for window management
+cask "nikitabobko/tap/aerospace"
+
+# LinearMouse for fixing acceleration on MacOS
+cask "linearmouse"
+
+# Discord for messaging
+#cask "discord"
+
+# Slack for messaging
+#cask "slack"
+
+# Alfred for productivity, it's a better Spotlight/Launchpad replacement
+cask "alfred"
+
+# balenaEtcher for bootable driver creation
+cask "balenaetcher"
+
+# iTerm2 for terminal
+cask "iterm2"
+
+# Ghostty for terminal
+cask "ghostty"
+
+# best archive manager, hands down
+cask "the-unarchiver"
+
+# Blender for 3D modeling
+cask "blender"
+
+# OBS for video recording
+cask "obs"
+
+# VLC for video playback
+cask "vlc"
+
+
+### Games ###
+
+# OpenEmu for running retro games
+cask "openemu"
+
+# RetroArch for running retro games
+cask "retroarch"
+
+# for NES games
+cask "nestopia"
+
+# for Smash Melee
+cask "slippi-dolphin"
+
+# Steam for gaming
+cask "steam"
+
+# Prism Launcher for Minecraft
+cask "prismlauncher"
+
+
+### Shells ###
 
 # ZSH is my default shell
 brew "zsh"
@@ -12,20 +103,69 @@ brew "nushell"
 # use Bash from Homebrew, since it's newer than the system default
 brew "bash"
 
-# Neovim is my default text editor
-brew "neovim"
 
-# Tmux for managing multiple terminal sessions
-brew "tmux"
-
-# Python environment manager
-# NOTE: I use ~/.venv for my user-default Python environment (via `uv`)
-brew "uv"
+### Rust Language ###
 
 # Rust programming language, this manages toolchain
 # this will set the default nightly toolchain:
 # $ rustup default nightly
 brew "rustup", postinstall: "${HOMEBREW_PREFIX}/bin/rustup default nightly"
+
+
+### Python Language ###
+
+# Python environment manager
+brew "uv"
+
+
+### JavaScript Language / Node ###
+
+# NodeJS CLI (npm)
+brew "node"
+
+
+### C/C++ Language ###
+
+# Includes LLVM and Clang, for C/C++ development as well as compiler development
+brew "llvm"
+
+# C/C++ build tools, used for building software
+brew "cmake"
+brew "ninja"
+brew "meson"
+
+
+### C#/Dotnet Language ###
+
+# .NET SDK for .NET development (C#/F#/...)
+cask "dotnet-sdk"
+
+
+### Common Tools ###
+
+# Codex AI for terminal
+cask "codex"
+
+# Claude for terminal
+cask "claude-code"
+
+# Shell tool for env loading
+brew "direnv"
+
+# Vim is my favorite text editor
+brew "vim"
+
+# Neovim is a good text editor
+brew "neovim"
+
+# ZSTD for compression
+brew "zstd"
+
+# FFmpeg for video processing
+brew "ffmpeg"
+
+# Tmux for managing multiple terminal sessions
+brew "tmux"
 
 # Git for version control
 # NOTE: use more up-to-date version from Homebrew
@@ -37,9 +177,8 @@ brew "git-delta"
 # GitHub CLI for managing GitHub repositories
 brew "gh"
 
-# Lynx for a text-based web browser
-# I don't use this much, but it's nice to play around with
-brew "lynx"
+# OpenTofu CLI
+brew "opentofu"
 
 # Collection of useful CLI utilities: https://joeyh.name/code/moreutils/
 brew "moreutils"
@@ -94,30 +233,21 @@ brew "htop"
 # TODO: find alternative?
 brew "stow"
 
+# Lynx for a text-based web browser
+# I don't use this much, but it's nice to play around with
+brew "lynx"
+
+
+### Libraries ###
+
 # OpenSSH is required for SSH
 brew "openssh"
-
-# Includes LLVM and Clang, for C/C++ development as well as compiler development
-brew "llvm"
-
-# C/C++ build tools, used for building software
-brew "cmake"
-brew "ninja"
-brew "meson"
 
 # math libraries
 brew "fftw"
 
-# LLVM v20 is required for llvmlite (Python package)
-# brew "llvm@20"
-brew "zstd"
-brew "ffmpeg"
-
 # for Java...
 brew "openjdk"
-
-# mpv for video playback
-brew "mpv"
 
 # Docker for containerization
 brew "docker"
@@ -125,80 +255,15 @@ brew "docker"
 # QEMU for running virtual machines
 brew "qemu"
 
-# balenaEtcher for bootable driver creation
-cask "balenaetcher"
-
 # UTM for running virtual machines (QEMU wrapper UI)
 cask "utm"
 
-# Alfred for productivity, it's a better Spotlight/Launchpad replacement
-cask "alfred"
+
+### Extra Assets ###
 
 # Font: JetBrains Mono
 cask "font-jetbrains-mono"
 
-# iTerm2 for terminal
-cask "iterm2"
+# Font: Powerline Fonts
+cask "font-powerline-symbols"
 
-# Warp for terminal
-cask "warp"
-
-# GIMP for general image editing (bitmaps)
-cask "gimp"
-
-# Inkscape for vector graphics editing
-cask "inkscape"
-
-# web browser
-cask "firefox"
-
-# LaTeX for MacOS
-cask "mactex"
-
-# LibreOffice for MacOS
-cask "libreoffice"
-
-# Spotify for audio streaming
-cask "spotify"
-
-# Aerospace for terminal
-cask "nikitabobko/tap/aerospace"
-
-# LinearMouse for fixing acceleration on MacOS
-cask "linearmouse"
-
-# Discord for messaging
-#cask "discord"
-
-# Slack for messaging
-#cask "slack"
-
-# best archive manager, hands down
-cask "the-unarchiver"
-
-# Blender for 3D modeling
-cask "blender"
-
-# OBS for video recording
-cask "obs"
-
-# VLC for video playback
-cask "vlc"
-
-# .NET SDK for .NET development (C#/F#/...)
-cask "dotnet-sdk"
-
-# Steam for gaming
-cask "steam"
-
-# Prism Launcher for Minecraft
-cask "prismlauncher"
-
-# experiments
-# cask "elmedia-player"
-
-# Ghostty for terminal
-# cask "ghostty"
-
-# Tabby for terminal
-# cask "tabby"
