@@ -14,12 +14,14 @@ export LANG=en_US.UTF-8
 export BROWSER='lynx'
 
 # private credential file
-. ~/.nvidia.env
+if [ -e "$HOME/.nvidia.env" ]; then
+    . ~/.nvidia.env
+fi
+
 # export URM_USER="..."
 # export URM_TOKEN="..."
 # export GITLAB_USER="..."
 # export GITLAB_ACCESS_TOKEN="..."
-
 
 export SSL_CERT_DIR=/usr/lib/ssl/certs
 
@@ -99,7 +101,9 @@ function cuda_use() {
 }
 
 # CUDA setup (only if there is a folder ~/cuda)
-cuda_use "$HOME/.cuda"
+if [ -e "$HOME/.cuda" ]; then
+    cuda_use "$HOME/.cuda"
+fi
 
 
 export NSYS_PATH="$SCRATCH/cudas/nsys/nsight-systems-linux-internal-DVS/target-linux-x64"

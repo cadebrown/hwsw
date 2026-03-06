@@ -134,6 +134,9 @@ automatically-unhide-macos-hidden-apps = true
     cmd-alt-up = ['join-with up', 'mode main']
     cmd-alt-right = ['join-with right', 'mode main']
 
+
+    
+
     # commands to switch between workspaces
     # TODO: make named workspaces? with autopopulating windows?
     # NOTE: https://nikitabobko.github.io/AeroSpace/commands#workspace
@@ -147,6 +150,17 @@ automatically-unhide-macos-hidden-apps = true
     alt-8 = 'workspace 8'
     alt-9 = 'workspace 9'
 
+
+    alt-shift-1 = 'workspace 10'
+    alt-shift-2 = 'workspace 11'
+    alt-shift-3 = 'workspace 12'
+    alt-shift-4 = 'workspace 13'
+    alt-shift-5 = 'workspace 14'
+
+
+
+    alt-shift-pageUp = 'move-workspace-to-monitor next'
+    alt-shift-pageDown = 'move-workspace-to-monitor prev'
 
     # commands to focus to next monitor
     alt-pageUp = 'focus-monitor --wrap-around next'
