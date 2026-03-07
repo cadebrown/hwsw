@@ -29,7 +29,7 @@
       },
       "scrolling" : {
         "reverse" : {
-          "vertical" : false
+          "vertical" : true
         }
       }
     }
